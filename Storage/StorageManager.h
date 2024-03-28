@@ -16,6 +16,7 @@ public:
 	void RemoveEntity(String name);
 	void ClearEntitys();
 	String AddEntity(String name, shared_ptr<Entity> entity, bool checkForExistingVar = true);
+	String AddEntity(shared_ptr<Entity> entity);
 	weak_ptr<Entity> GetEntity(String name);
 };
 

@@ -45,6 +45,12 @@ void StorageManager::RemoveEntity(String name)
 	}
 }
 
+String StorageManager::AddEntity(shared_ptr<Entity> entity) 
+{
+	String id = Uuid();
+	return AddEntity(id, entity, true);
+}
+
 String StorageManager::AddEntity(String name, shared_ptr<Entity> entity, bool checkForExistingVar)
 {
 	if (checkForExistingVar) {
