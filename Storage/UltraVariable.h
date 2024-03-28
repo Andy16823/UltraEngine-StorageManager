@@ -22,6 +22,10 @@ public:
 		return m_entity;
 	}
 
+	virtual shared_ptr<Entity> GetEntity() {
+		return m_entity;
+	}
+
 	virtual int GetUsages() {
 		return m_entity.use_count();
 	}
