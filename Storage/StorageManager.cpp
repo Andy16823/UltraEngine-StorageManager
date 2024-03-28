@@ -24,6 +24,15 @@ int StorageManager::CountEntitys() {
 	return m_vars.size();
 }
 
+String StorageManager::GetEntityKey(shared_ptr<Entity> entity) {
+	for (auto i : m_vars) {
+		auto ref = i.second->GetEntity();
+		if (ref == entity)
+			return i.first;
+	}
+	return NULL;
+}
+
 void StorageManager::ClearEntitys() {
 	m_vars.clear();
 }
@@ -36,17 +45,22 @@ void StorageManager::RemoveEntity(String name)
 	}
 }
 
-void StorageManager::AddEntity(String name, shared_ptr<Entity> entity, bool checkForExistingVar)
+String StorageManager::AddEntity(String name, shared_ptr<Entity> entity, bool checkForExistingVar)
 {
 	if (checkForExistingVar) {
 		if (!this->Contains(entity)) {
 			auto var = UltraVariable::CreateVar(entity);
 			m_vars.insert(pair<String, shared_ptr<UltraVariable>>(name, var));
+			return name;
+		}
+		else {
+			return GetEntityKey(entity);
 		}
 	}
 	else {
 		auto var = UltraVariable::CreateVar(entity);
 		m_vars.insert(pair<String, shared_ptr<UltraVariable>>(name, var));
+		return name;
 	}
 }
 

@@ -12,9 +12,10 @@ public:
 	int CountEntitys();
 	bool Contains(String name);
 	bool Contains(shared_ptr<Entity> entity);
+	String GetEntityKey(shared_ptr<Entity> entity);
 	void RemoveEntity(String name);
 	void ClearEntitys();
-	void AddEntity(String name, shared_ptr<Entity> entity, bool checkForExistingVar = true);
+	String AddEntity(String name, shared_ptr<Entity> entity, bool checkForExistingVar = true);
 	weak_ptr<Entity> GetEntity(String name);
 };
 
