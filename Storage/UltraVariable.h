@@ -40,6 +40,10 @@ public:
 		return false;
 	}
 
+	virtual uint64_t GetLastUsage() {
+		return m_lastUsage;
+	}
+
 	void Use();
 	static shared_ptr<UltraVariable> CreateVar(shared_ptr<Entity> entity);
 };

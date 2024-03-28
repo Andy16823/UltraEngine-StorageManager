@@ -78,3 +78,19 @@ weak_ptr<Entity> StorageManager::GetEntity(String name)
 		return var->GetEntitySave();
 	}
 }
+
+void StorageManager::ClearGarbage(uint64_t millis) {
+	std::vector<String> garbage;
+	for (auto i : m_vars) {
+		auto now = Millisecs();
+		if (now - i.second->GetLastUsage() > millis) {
+			garbage.push_back(i.first);
+		}
+	}
+
+	for (int i = 0; i < garbage.size(); i++) {
+		this->RemoveEntity(garbage[i]);
+		Print("Removed " + garbage[i] + " due of inactivity.");
+	}
+	garbage.clear();
+}
