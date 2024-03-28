@@ -1,4 +1,4 @@
-#Storage Manager for the Ultra Engine
+# Storage Manager for the Ultra Engine
 
 Entity pointers can be managed with this class. I created this class because it often gets very confusing when you have complex relationships between different components and these have relationships with each other.
 
@@ -6,7 +6,7 @@ The class is intended to prevent pointers from being left alive unintentionally 
 
 Instead of creating a variable for the pointer in a component, the entity can simply be added to the StorageManager. If you need an entity, you can simply retrieve it as weak_ptr and use it temporarily without hesitation. 
 
-#How can the class be used? 
+## How can the class be used? 
 
 First create a global variable from the StorageManager. Then you can simply use 
 
