@@ -25,6 +25,8 @@ public:
 	void RemoveEntity(String name);
 	void ClearEntitys();
 	void ClearGarbage(uint64_t duration);
+	void RefreshEntity(String name);
+	void RefreshEntity(shared_ptr<Entity> entity);
 	String AddEntity(String name, shared_ptr<Entity> entity, bool checkForExistingVar = true);
 	String AddEntity(shared_ptr<Entity> entity);
 	weak_ptr<Entity> GetEntity(String name);

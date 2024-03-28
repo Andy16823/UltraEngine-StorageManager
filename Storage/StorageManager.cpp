@@ -94,3 +94,17 @@ void StorageManager::ClearGarbage(uint64_t millis) {
 	}
 	garbage.clear();
 }
+
+void StorageManager::RefreshEntity(String name)
+{
+	auto var = m_vars[name];
+	if (var != nullptr) {
+		var->Use();
+	}
+}
+
+void StorageManager::RefreshEntity(shared_ptr<Entity> entity)
+{
+	auto key = GetEntityKey(entity);
+	RefreshEntity(key);
+}
